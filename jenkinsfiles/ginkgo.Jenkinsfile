@@ -8,6 +8,7 @@ pipeline {
     environment {
         PROJ_PATH = "src/github.com/cilium/cilium"
         VM_MEMORY = "4096"
+        NFS = "1"
         SERVER_BOX = "cilium/ubuntu"
         NETNEXT=setIfLabel("ci/net-next", "1", "0")
         GINKGO_TIMEOUT="360m"
