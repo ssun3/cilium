@@ -217,6 +217,9 @@ data:
   # Only effective when monitor aggregation is set to "medium" or higher.
   monitor-aggregation-flags: {{ .Values.bpf.monitorFlags }}
 
+{{- if .Values.bpf.compileDebug }}
+  bpf-compile-debug: "true"
+{{- end }}
 
 
 

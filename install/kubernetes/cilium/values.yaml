@@ -178,6 +178,8 @@ bandwidthManager: true
 bpf:
   clockProbe: false
 
+  compileDebug: false
+
   # -- Force the cilium-agent DaemonSet to wait in an initContainer until the
   # eBPF filesystem has been mounted.
   waitForMount: false
