@@ -602,6 +602,17 @@ var _ = Describe("K8sDatapathConfig", func() {
 		})
 	})
 
+	Context("Debug", func() {
+		It("Check connectivity with compile debug enabled", func() {
+			deploymentManager.DeployCilium(map[string]string{
+				"ipv4.enabled":     "true",
+				"ipv6.enabled":     "false",
+				"bpf.compileDebug": "true",
+			}, DeployCiliumOptionsAndDNS)
+			Expect(testPodConnectivityAcrossNodes(kubectl)).Should(BeTrue(), "Connectivity test between nodes failed")
+		})
+	})
+
 	Context("Etcd", func() {
 		It("Check connectivity", func() {
 			deploymentManager.Deploy(helpers.CiliumNamespace, StatelessEtcd)
